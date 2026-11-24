@@ -6,6 +6,12 @@ const lessons = [
   { y: 242, done: false },
 ];
 
+const progressTrackWidth = 260;
+const progressWidth = Math.round(
+  (progressTrackWidth * lessons.filter((lesson) => lesson.done).length) /
+    lessons.length
+);
+
 function Check({ d, className }: { d: string; className: string }) {
   return (
     <path
@@ -82,7 +88,7 @@ function CourseCard() {
       <rect
         x="100"
         y="300"
-        width="260"
+        width={progressTrackWidth}
         height="10"
         rx="5"
         className="fill-muted"
@@ -90,7 +96,7 @@ function CourseCard() {
       <rect
         x="100"
         y="300"
-        width="174"
+        width={progressWidth}
         height="10"
         rx="5"
         className="fill-primary"
